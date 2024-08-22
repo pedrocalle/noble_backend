@@ -11,6 +11,7 @@ defmodule NobleBackendWeb.Router do
     resources "/orders", OrderController, only: [:create, :show, :update, :delete]
     resources "/payments", PaymentController, only: [:create, :show, :update, :delete]
     resources "/products", ProductController, only: [:create, :show, :update, :delete]
+    get "/products", ProductController, :show_all
     resources "/order-items", OrderItemController, only: [:create, :show, :update, :delete]
   end
 

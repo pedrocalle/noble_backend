@@ -10,6 +10,13 @@ defmodule NobleBackendWeb.ProductJSON do
 
   def read(%{product: product}), do: data(product)
 
+  def read_all(%{product: products}) do
+    products
+    |> Enum.map(fn product ->
+      data(product)
+    end)
+  end
+
   def update(%{product: product}) do
     %{
       message: "Produto atualizado com sucesso!",

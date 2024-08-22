@@ -21,6 +21,13 @@ defmodule NobleBackendWeb.ProductController do
     end
   end
 
+  def show_all(conn, _) do
+      product = Products.read_all()
+      conn
+      |> put_status(:ok)
+      |> render(:read_all, %{product: product})
+    end
+
   def update(conn, params) do
     with {:ok, %Product{} = product} <- Products.update(params) do
       conn

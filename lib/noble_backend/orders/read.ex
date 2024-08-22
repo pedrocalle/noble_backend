@@ -1,11 +1,11 @@
 defmodule NobleBackend.Orders.Read do
-  alias NobleBackend.Clients.Client
+  alias NobleBackend.Orders.Order
   alias NobleBackend.Repo
 
   def call(id) do
-    case Repo.get(Client, id) do
+    case Repo.get(Order, id) do
       nil -> {:error, :not_found}
-      client -> {:ok, client}
+      order -> {:ok, order}
     end
   end
 end

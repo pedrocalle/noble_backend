@@ -1,11 +1,11 @@
 defmodule NobleBackend.Orders.Delete do
   alias NobleBackend.Repo
-  alias NobleBackend.Clients.Client
+  alias NobleBackend.Orders.Order
 
   def call(id) do
-    case Repo.get(Client, id) do
+    case Repo.get(Order, id) do
       nil -> {:error, :not_found}
-      client -> Repo.delete(client)
+      order -> Repo.delete(order)
     end
   end
 end

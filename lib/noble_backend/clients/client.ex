@@ -1,5 +1,5 @@
 defmodule NobleBackend.Clients.Client do
-  alias Ecto.Changeset
+  # alias Ecto.Changeset
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -24,8 +24,7 @@ defmodule NobleBackend.Clients.Client do
     |> validate_required([:name, :email, :password])
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email, message: "Email already in use")
-    |> add_password_hash()
-    |> IO.inspect()
+    # |> add_password_hash()
   end
 
   def changeset(user, params) do
@@ -33,13 +32,13 @@ defmodule NobleBackend.Clients.Client do
     |> cast(params, [:name, :email, :address, :phone])
     |> validate_required([:name, :email])
     |> unique_constraint(:email)
-    |> add_password_hash()
+    # |> add_password_hash()
   end
 
-  defp add_password_hash(%Changeset{valid?: true, changes: %{password: password}} = changeset) do
-    salt = Argon2.Base.gen_salt()
-    change(changeset, %{password_hash: Argon2.Base.hash_password(password, salt)})
-  end
+  # defp add_password_hash(%Changeset{valid?: true, changes: %{password: password}} = changeset) do
+  #   salt = Argon2.Base.gen_salt()
+  #   change(changeset, %{password_hash: Argon2.Base.hash_password(password, salt)})
+  # end
 
-  defp add_password_hash(changeset), do: changeset
+  # defp add_password_hash(changeset), do: changeset
 end

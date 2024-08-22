@@ -1,22 +1,22 @@
 defmodule NobleBackendWeb.OrderJSON do
   alias NobleBackend.Orders.Order
-  def create(order) do
+  def create(%{order: order}) do
     %{
       message: "Pedido criado com sucesso!",
       data: data(order)
     }
   end
 
-  def read(order), do: data(order)
+  def read(%{order: order}), do: data(order)
 
-  def update(order) do
+  def update(%{order: order}) do
     %{
       message: "Pedido atualizado com sucesso!",
       data: data(order)
     }
   end
 
-  def delete(order) do
+  def delete(%{order: order}) do
     %{
       message: "Pedido deletado com sucesso!",
       data: data(order)

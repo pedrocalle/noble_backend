@@ -1,19 +1,19 @@
 defmodule NobleBackend.Orders.Update do
   alias NobleBackend.Repo
-  alias NobleBackend.Clients.Client
+  alias NobleBackend.Orders.Order
 
   def call(%{"id" => id} = params) do
     IO.inspect(params)
 
-    case Repo.get(Client, id) do
+    case Repo.get(Order, id) do
       nil -> {:error, :not_found}
-      client -> update(client, params)
+      order -> update(order, params)
     end
   end
 
-  defp update(client, params) do
-    client
-    |>Client.changeset(params)
+  defp update(order, params) do
+    order
+    |>Order.changeset(params)
     |>Repo.update()
   end
 end

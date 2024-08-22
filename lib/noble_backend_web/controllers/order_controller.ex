@@ -30,7 +30,7 @@ defmodule NobleBackendWeb.OrderController do
   end
 
   def delete(conn, %{"id" => id}) do
-    with {:ok, %Order{} = %{order: order}} <- Orders.delete(id) do
+    with {:ok, %Order{} = order} <- Orders.delete(id) do
       conn
       |> put_status(:ok)
       |> render(:delete, %{order: order})

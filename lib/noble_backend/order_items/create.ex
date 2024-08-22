@@ -1,9 +1,9 @@
 defmodule NobleBackend.OrderItems.Create do
-  alias NobleBackend.Clients.Client
+  alias NobleBackend.OrderItems.OrderItem
   alias NobleBackend.Repo
   def call(params) do
       params
-      |>Client.changeset()
+      |>OrderItem.changeset()
       |>Repo.insert()
   end
 end

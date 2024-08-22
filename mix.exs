@@ -41,7 +41,9 @@ defmodule NobleBackend.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.2"}
+      {:bandit, "~> 1.2"},
+      {:cors_plug, "~> 3.0"},
+      {:stripity_stripe, "~> 2.0"}
     ]
   end
 

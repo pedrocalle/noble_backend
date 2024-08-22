@@ -11,6 +11,8 @@ config :noble_backend,
   ecto_repos: [NobleBackend.Repo],
   generators: [timestamp_type: :utc_datetime]
 
+config :stripity_stripe, api_key: System.get_env("API_KEY")
+
 # Configures the endpoint
 config :noble_backend, NobleBackendWeb.Endpoint,
   url: [host: "localhost"],

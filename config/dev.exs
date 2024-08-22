@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :noble_backend, NobleBackend.Repo,
   username: "postgres",
-  password: "admin",
+  password: "abc@123#",
   hostname: "localhost",
   database: "noble_backend_dev",
   stacktrace: true,

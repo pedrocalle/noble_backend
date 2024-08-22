@@ -17,16 +17,16 @@ defmodule NobleBackendWeb.ClientController do
   def show(conn, %{"id" => id}) do
     with {:ok, %Client{} = client} <- Clients.read(id) do
       conn
-      |>put_status(:ok)
-      |>render(:read, %{client: client})
+      |> put_status(:ok)
+      |> render(:read, %{client: client})
     end
   end
 
   def update(conn, params) do
     with {:ok, %Client{} = client} <- Clients.update(params) do
       conn
-      |>put_status(:ok)
-      |>render(:update, %{client: client})
+      |> put_status(:ok)
+      |> render(:update, %{client: client})
     end
   end
 

@@ -8,10 +8,10 @@ defmodule NobleBackendWeb.Router do
   scope "/api", NobleBackendWeb do
     pipe_through :api
     resources "/clients", ClientController, only: [:create, :show, :update, :delete]
-    resources "/orders", ClientController, only: [:create, :show, :update, :delete]
-    resources "/payments", ClientController, only: [:create, :show, :update, :delete]
-    resources "/products", ClientController, only: [:create, :show, :update, :delete]
-    resources "/order-items", ClientController, only: [:create, :show, :update, :delete]
+    resources "/orders", OrderController, only: [:create, :show, :update, :delete]
+    resources "/payments", PaymentController, only: [:create, :show, :update, :delete]
+    resources "/products", ProductController, only: [:create, :show, :update, :delete]
+    resources "/order-items", OrderItemController, only: [:create, :show, :update, :delete]
   end
 
   # Enable LiveDashboard in development

@@ -2,6 +2,9 @@ defmodule NobleBackend.OrderItems.OrderItem do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, Ecto.UUID, autogenerate: true}
+  @foreign_key_type Ecto.UUID
+
   schema "order_items" do
     field :quantity, :integer
     field :unit_price, :decimal

@@ -1,9 +1,10 @@
 defmodule NobleBackend.Payments.Create do
-  alias NobleBackend.Clients.Client
+  alias NobleBackend.Payments.Payment
   alias NobleBackend.Repo
+
   def call(params) do
-      params
-      |>Client.changeset()
-      |>Repo.insert()
+    params
+    |> Payment.changeset()
+    |> Repo.insert()
   end
 end

@@ -1,22 +1,23 @@
 defmodule NobleBackendWeb.ProductJSON do
   alias NobleBackend.Products.Product
-  def create(product) do
+
+  def create(%{product: product}) do
     %{
       message: "Produto criado com sucesso!",
       data: data(product)
     }
   end
 
-  def read(product), do: product
+  def read(%{product: product}), do: data(product)
 
-  def update(product) do
+  def update(%{product: product}) do
     %{
       message: "Produto atualizado com sucesso!",
       data: data(product)
     }
   end
 
-  def delete(product) do
+  def delete(%{product: product}) do
     %{
       message: "Produto deletado com sucesso!",
       data: data(product)

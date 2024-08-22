@@ -1,19 +1,17 @@
 defmodule NobleBackend.Payments.Update do
   alias NobleBackend.Repo
-  alias NobleBackend.Clients.Client
+  alias NobleBackend.Payments.Payment
 
   def call(%{"id" => id} = params) do
-    IO.inspect(params)
-
-    case Repo.get(Client, id) do
+    case Repo.get(Payment, id) do
       nil -> {:error, :not_found}
-      client -> update(client, params)
+      payment -> update(payment, params)
     end
   end
 
-  defp update(client, params) do
-    client
-    |>Client.changeset(params)
-    |>Repo.update()
+  defp update(payment, params) do
+    payment
+    |> Payment.changeset(params)
+    |> Repo.update()
   end
 end

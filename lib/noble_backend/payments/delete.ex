@@ -1,12 +1,11 @@
 defmodule NobleBackend.Payments.Delete do
   alias NobleBackend.Repo
-  alias NobleBackend.Clients.Client
+  alias NobleBackend.Payments.Payment
 
-  def call(%{"id" => id}) do
-
-    case Repo.get(Client, id) do
+  def call(id) do
+    case Repo.get(Payment, id) do
       nil -> {:error, :not_found}
-      client -> Repo.delete(client)
+      payment -> Repo.delete(payment)
     end
   end
 end

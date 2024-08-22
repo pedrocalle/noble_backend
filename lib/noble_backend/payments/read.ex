@@ -1,11 +1,11 @@
 defmodule NobleBackend.Payments.Read do
-  alias NobleBackend.Clients.Client
+  alias NobleBackend.Payments.Payment
   alias NobleBackend.Repo
 
   def call(id) do
-    case Repo.get(Client, id) do
+    case Repo.get(Payment, id) do
       nil -> {:error, :not_found}
-      client -> {:ok, client}
+      payment -> {:ok, payment}
     end
   end
 end

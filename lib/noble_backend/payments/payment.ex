@@ -2,6 +2,9 @@ defmodule NobleBackend.Payments.Payment do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, Ecto.UUID, autogenerate: true}
+  @foreign_key_type Ecto.UUID
+
   schema "payments" do
     field :payment_date, :naive_datetime
     field :value, :decimal
@@ -12,8 +15,7 @@ defmodule NobleBackend.Payments.Payment do
     timestamps()
   end
 
-
-  def changeset( params) do
+  def changeset(params) do
     %__MODULE__{}
     |> cast(params, [:payment_date, :value, :method, :order_id])
     |> validate_required([:payment_date, :value, :method, :order_id])

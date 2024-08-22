@@ -2,6 +2,8 @@ defmodule NobleBackend.Products.Product do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, Ecto.UUID, autogenerate: true}
+
   schema "products" do
     field :name, :string
     field :description, :string
@@ -12,7 +14,6 @@ defmodule NobleBackend.Products.Product do
 
     timestamps()
   end
-
 
   def changeset(params) do
     %__MODULE__{}

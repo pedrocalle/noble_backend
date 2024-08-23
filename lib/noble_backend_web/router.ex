@@ -6,14 +6,23 @@ defmodule NobleBackendWeb.Router do
     plug CORSPlug
   end
 
+  pipeline :auth do
+    plug NobleBackendWeb.Auth
+  end
+
   scope "/api", NobleBackendWeb do
     pipe_through :api
-    resources "/clients", ClientController, only: [:create, :show, :update, :delete]
+    post "/clients", ClientController, :create
+    get "/products", ProductController, :show_all
+    post "/login", ClientController, :login
+  end
+
+  scope "/api", NobleBackendWeb do
+    pipe_through [:api, :auth]
     resources "/orders", OrderController, only: [:create, :show, :update, :delete]
     resources "/payments", PaymentController, only: [:create, :show, :update, :delete]
-    resources "/products", ProductController, only: [:create, :show, :update, :delete]
-    get "/products", ProductController, :show_all
     resources "/order-items", OrderItemController, only: [:create, :show, :update, :delete]
+    resources "/products", ProductController, only: [:create, :show, :update, :delete]
   end
 
   # Enable LiveDashboard in development

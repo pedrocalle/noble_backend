@@ -1,4 +1,5 @@
 defmodule NobleBackendWeb.ClientController do
+  alias NobleBackendWeb.Token
   alias NobleBackend.Clients.Client
   alias NobleBackend.Clients
 
@@ -19,6 +20,16 @@ defmodule NobleBackendWeb.ClientController do
       conn
       |> put_status(:ok)
       |> render(:read, %{client: client})
+    end
+  end
+
+  def login(conn, params) do
+    with {:ok, %Client{} = client} <- Clients.verify(params) do
+      token = Token.sign(client)
+
+      conn
+      |> put_status(:ok)
+      |> render(:login, %{token: token})
     end
   end
 

@@ -43,7 +43,8 @@ defmodule NobleBackend.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
       {:cors_plug, "~> 3.0"},
-      {:stripity_stripe, "~> 2.0"}
+      {:stripity_stripe, "~> 2.0"},
+      {:argon2_elixir, "~> 4.0"}
     ]
   end
 

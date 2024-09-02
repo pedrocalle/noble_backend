@@ -1,18 +1,15 @@
-# NobleBackend
+# Noble Backend - API for E-commerce Clothing Brand
+Noble Backend é a API desenvolvida em Elixir usando o Phoenix Framework para dar suporte ao e-commerce da marca de roupas Noble. Este backend gerencia a lógica de negócios do e-commerce, incluindo catálogo de produtos, carrinho de compras, processamento de pedidos, pagamentos e integração com sistemas de inventário.
 
-To start your Phoenix server:
-
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+# Funcionalidades Principais
+- Catálogo de Produtos: Endpoints para listar, filtrar e buscar produtos por categorias, tamanhos, cores, e preços.
+- Processamento de Pedidos: Gerenciamento do fluxo de pedidos, desde a criação até o pagamento e a confirmação de envio.
+- Integração de Pagamentos: Integração com serviços de pagamento, para processar transações de forma segura.
+- Gerenciamento de Estoque: Controle de estoque em tempo real, atualização automática com base nas compras.
+- Autenticação e Autorização: Sistema seguro de autenticação de usuários usando JWT, com suporte a usuários administradores para gerenciamento do e-commerce.
+  
+# Tecnologias Utilizadas
+- Elixir: Linguagem de programação funcional para construir aplicações escaláveis e de alta performance.
+- Phoenix Framework: Framework web utilizado para construir APIs RESTful e canais de comunicação em tempo real.
+- PostgreSQL: Banco de dados relacional utilizado para armazenamento seguro e eficiente de dados.
+- Stripe API: Integração para processamento de pagamentos online.
